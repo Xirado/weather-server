@@ -10,7 +10,7 @@ fun Application.configureRouting() {
     // Starting point for a Ktor app:
     routing {
         post("/weather") {
-            val body = call.receive<String>()
+            val body = call.receiveText()
 
             log.info(body)
             call.respond(HttpStatusCode.OK)
