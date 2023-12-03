@@ -1,6 +1,7 @@
 plugins {
     application
     kotlin("jvm") version "2.0.0-Beta1"
+    kotlin("plugin.serialization") version "2.0.0-Beta1"
     id("io.ktor.plugin") version "3.0.0-beta-1"
     id("org.graalvm.buildtools.native") version "0.9.28"
 }
@@ -19,6 +20,8 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:1.4.6")
     implementation("io.ktor:ktor-server-core-jvm")
     implementation("io.ktor:ktor-server-cio-jvm")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.6.1")
 
     testImplementation("io.ktor:ktor-server-test-host-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
