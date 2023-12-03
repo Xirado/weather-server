@@ -9,7 +9,7 @@ plugins {
 group = "io.ktor"
 version = "0.0.1"
 application {
-    mainClass.set("io.ktorgraal.ApplicationKt")
+    mainClass.set("at.xirado.weather.ApplicationKt")
 }
 
 repositories {
