@@ -10,8 +10,10 @@ val json = Json {
 
 @Serializable
 data class Config(
-    val host: String,
-    val port: Int,
+    val host: String = "0.0.0.0",
+    val port: Int = 6060,
+    val prometheusHost: String = "0.0.0.0",
+    val prometheusPort: Int = 5123,
 )
 
 fun readConfig(): Config {

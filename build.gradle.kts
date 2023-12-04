@@ -23,6 +23,9 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.6.1")
 
+    implementation("io.prometheus:simpleclient:0.14.1")
+    implementation("io.prometheus:simpleclient_httpserver:0.14.1")
+
     testImplementation("io.ktor:ktor-server-test-host-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }

@@ -1,5 +1,6 @@
 package at.xirado.weather.plugins
 
+import at.xirado.weather.Metrics
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
@@ -10,9 +11,14 @@ fun Application.configureRouting() {
     // Starting point for a Ktor app:
     routing {
         post("/weather") {
-            val body = call.receiveText()
+            val body = call.receiveParameters()
 
-            log.info(body)
+            body["tempf"]?.let { Metrics.temperatureOutside.set(it.toDouble()) }
+            body["intempf"]?.let { Metrics.temperatureInside.set(it.toDouble()) }
+
+            body["humidity"]?.let { Metrics.humidityOutside.set(it.toDouble()) }
+            body["humidityin"]?.let { Metrics.humidityInside.set(it.toDouble()) }
+
             call.respond(HttpStatusCode.OK)
         }
     }
