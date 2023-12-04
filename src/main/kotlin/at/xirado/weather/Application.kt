@@ -10,7 +10,7 @@ fun main() {
     val host = config.host
     val port = config.port
 
-    initPrometheus(config)
+    Metrics.init(config)
     embeddedServer(CIO, port = port, host = host) {
         configureRouting()
     }.start(wait = true)

@@ -12,9 +12,9 @@ fun Application.configureRouting() {
     routing {
         post("/weather") {
             val body = call.receiveParameters()
-
+            println(body["tempf"])
             body["tempf"]?.let { Metrics.temperatureOutside.set(it.toDouble()) }
-            body["intempf"]?.let { Metrics.temperatureInside.set(it.toDouble()) }
+            body["tempinf"]?.let { Metrics.temperatureInside.set(it.toDouble()) }
 
             body["humidity"]?.let { Metrics.humidityOutside.set(it.toDouble()) }
             body["humidityin"]?.let { Metrics.humidityInside.set(it.toDouble()) }
